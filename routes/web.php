@@ -38,9 +38,6 @@ use Inertia\Inertia;
 });*/
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/quem-somos', [HomeController::class, 'quem_somos'])->name('quem.somos');
-Route::get('/etiquetas-escolares', [HomeController::class, 'etiquetas_escolares'])->name('etiquetas.escolares');
-Route::get('/nossos-links', [HomeController::class, 'nossos_links'])->name('nossos.links');
 
 /* ROTAS ADMINISTRATIVAS */
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -64,12 +61,6 @@ Route::get('/nossos-links', [HomeController::class, 'nossos_links'])->name('noss
         Route::post('setores', [SetorController::class, 'store'])->name('setor.store');
         Route::put('setores/{setor}', [SetorController::class, 'update'])->name('setor.update');
         Route::delete('setores/{setor}', [SetorController::class, 'destroy'])->name('setor.destroy');
-
-        Route::get('avisos', [AvisoController::class, 'index'])->name('avisos');
-        Route::post('avisos', [AvisoController::class, 'store'])->name('aviso.store');
-        Route::put('avisos/{aviso}', [AvisoController::class, 'update'])->name('aviso.update');
-        Route::delete('avisos/{aviso}', [AvisoController::class, 'destroy'])->name('aviso.destroy');
-
 
 
     });

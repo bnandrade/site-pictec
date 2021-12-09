@@ -21,15 +21,4 @@ class HomeController extends Controller
         ]);
     }
 
-    public function etiquetas_escolares(Request $request)
-    {
-        return Inertia::render('EtiquetasEscolares', [
-            'filters' => $request->all('search', 'order'),
-        ]);
-    }
-
-    public function nossos_links()
-    {
-        return Inertia::render('NossosLinks', []);
-    }
 }

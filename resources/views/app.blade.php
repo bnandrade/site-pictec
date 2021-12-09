@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <meta name="author" content="Aquarela Personalizados @aquarela.personalizado" />
-        <meta name="description" content="Aquarela Personalizados - Etiquetas Escolares Personalizadas: Organização e identificação do material escolar de suas crianças! ✓ Entrega em todo o Brasil ✓ Dinheiro ✓ PIX ✓ Cartão ✓ Parcelamento" />
-        <link rel="canonical" href="https://www.aquarelapersonalizados.com.br/etiquetas-personalizadas" />
+        <meta name="author" content="Bruno Andrade - Projeto Midia Ciência" />
+        <meta name="description" content="Site PICTEC - Programa de Iniciação Científica e Tecnológica de Mato Grosso do Sul" />
+        <link rel="canonical" href="" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Aquarela Personalizados - Etiquetas Escolares Personalizadas" />
-        <meta property="og:description" content="Aquarela Personalizados - Etiquetas Escolares Personalizadas: Organização e identificação do material escolar de suas crianças! ✓ Entrega em todo o Brasil ✓ Dinheiro ✓ PIX ✓ Cartão ✓ Parcelamento" />
-        <meta property="og:url" content="https://www.aquarelapersonalizados.com.br/etiquetas-personalizadas" />
-        <meta property="og:site_name" content="Aquarela Personalizados" />
+        <meta property="og:title" content="PICTEC" />
+        <meta property="og:description" content="Site PICTEC - Programa de Iniciação Científica e Tecnológica de Mato Grosso do Sul" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="PICTEC" />
 
-        <meta name="keywords" content="Personalização, Etiquetas escolares, etiquetas, escolares, papelaria personalizada" />
+        <meta name="keywords" content="PICTEC, iniciação científica, tecnologia, ciência, MS" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -31,18 +31,8 @@
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2Y1YVXWCP"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-M2Y1YVXWCP');
-        </script>
     </head>
-    <body class=" antialiased text-white leading-normal tracking-normal bg-gradient-to-r from-aqua-pink to-aqua-blue">
+    <body class=" antialiased leading-normal tracking-normal bg-gray-300">
         @inertia
     </body>
 </html>

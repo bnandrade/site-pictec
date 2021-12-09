@@ -37,18 +37,6 @@
 
                 <hr class="my-6 dark:border-gray-600" />
 
-                <sidebar-nav-link :href="route('setores')" :active="route().current('setores')">
-                    <i class="fas fa-landmark"></i>
-                    <span class="mx-2 font-medium">Setores</span>
-                </sidebar-nav-link>
-
-                <sidebar-nav-link :href="route('avisos')" :active="route().current('avisos')">
-                    <i class="far fa-comments"></i>
-                    <span class="mx-2 font-medium">Avisos</span>
-                </sidebar-nav-link>
-
-
-                <hr class="my-6 dark:border-gray-600" />
             </nav>
 
         </div>

@@ -29,10 +29,6 @@ class PermissionSeeder extends Seeder
             'setor-listar',
             'setor-editar',
             'setor-deletar',
-            'aviso-criar',
-            'aviso-listar',
-            'aviso-editar',
-            'aviso-deletar',
         ];
         foreach ($permissions as $permission) {
             $p = Permission::create(['name' => $permission]);

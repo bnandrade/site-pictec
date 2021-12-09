@@ -23,19 +23,6 @@ class DashboardController extends Controller
 
         return Inertia::render('Dashboard', [
             'filters' => $request->all('search', 'order'),
-            'avisos' => Aviso::where('published', 1)
-                ->get()
-                ->transform(function ($aviso) {
-                    return [
-                        'id' => $aviso->id,
-                        'titulo' => $aviso->titulo,
-                        'conteudo' => $aviso->conteudo,
-                        'published' => $aviso->published,
-                        'imagem' => Storage::url($aviso->imagem),
-                        'anexo' => Storage::url($aviso->anexo),
-                        'created_at' => $aviso->created_at
-                    ];
-                }),
             'setores' => Setor::orderByName()
                 ->filter($request->only('search'))
                 ->get()

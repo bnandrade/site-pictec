@@ -120,20 +120,6 @@
                             </jet-responsive-nav-link>
                         </div>
 
-                        <div class="mt-1 ">
-                            <jet-responsive-nav-link :href="route('setores')" :active="route().current('setores')" v-if="$page.props.auth.user.can['setor-listar'] || $page.props.auth.user.role['Super.Admin']">
-                                <i class="fas fa-landmark"></i> <span class="mx-2 font-medium">Setores</span>
-                            </jet-responsive-nav-link>
-                        </div>
-
-                        <div class="mt-1 ">
-                            <jet-responsive-nav-link :href="route('avisos')" :active="route().current('avisos')" v-if="$page.props.auth.user.can['aviso-listar'] || $page.props.auth.user.role['Super.Admin']">
-                                <i class="fas fa-comments"></i> <span class="mx-2 font-medium">Avisos</span>
-                            </jet-responsive-nav-link>
-                        </div>
-
-
-
                         <div class="mt-4 ">
 
                             <!-- Authentication -->

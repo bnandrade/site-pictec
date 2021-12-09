@@ -21,7 +21,6 @@ class RoleSeeder extends Seeder
             'Gerenciar permissões',
             'Gerenciar roles',
             'Gerenciar setores',
-            'Gerenciar avisos',
         ];
         foreach ($roles as $role) {
             $p = Role::create(['name' => $role]);

@@ -78,49 +78,6 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'pgsql2' => [
-            'driver' => 'pgsql',
-            'url' => env('DATABASE_URL_WARELINE'),
-            'host' => env('DB_HOST_WARELINE', '127.0.0.1'),
-            'port' => env('DB_PORT_WARELINE', '5432'),
-            'database' => env('DB_DATABASE_WARELINE', 'forge'),
-            'username' => env('DB_USERNAME_WARELINE', 'forge'),
-            'password' => env('DB_PASSWORD_WARELINE', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
-
-        'mongodb' => [
-            'driver' => 'mongodb',
-            'host' => env('DB_HOST_MONGO', '127.0.0.1'),
-            'port' => env('DB_PORT_MONGO', 27017),
-            'database' => env('DB_DATABASE_MONGO', 'homestead'),
-            'username' => env('DB_USERNAME_MONGO', 'homestead'),
-            'password' => env('DB_PASSWORD_MONGO', 'secret'),
-            'options' => [
-                // here you can pass more settings to the Mongo Driver Manager
-                // see https://www.php.net/manual/en/mongodb-driver-manager.construct.php under "Uri Options" for a list of complete parameters that you can use
-
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // required with Mongo 3+
-            ],
-        ],
-
-        'oracle' => [
-            'driver'        => 'oracle',
-            'host'          => env('DB_HOST_ORACLE', ''),
-            'port'          => env('DB_PORT_ORACLE', '1521'),
-            'database'      => env('DB_DATABASE_ORACLE', ''),
-            'service_name'      => env('DB_SERVICE_NAME_ORACLE', 'sid_alias'),
-            'username'      => env('DB_USERNAME_ORACLE', ''),
-            'password'      => env('DB_PASSWORD_ORACLE', ''),
-            'charset'       => env('DB_CHARSET_ORACLE', 'AL32UTF8'),
-            'prefix'        => env('DB_PREFIX_ORACLE', ''),
-            'prefix_schema' => env('DB_SCHEMA_PREFIX_ORACLE', ''),
-            'edition'       => env('DB_EDITION_ORACLE', 'ora$base'),
-        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
