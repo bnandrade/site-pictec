@@ -14,25 +14,19 @@
         <div class="flex flex-col justify-between flex-1 mt-2">
             <nav>
                 <sidebar-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                    <i class="fas fa-home"></i>
-                    <span class="mx-2 font-medium">Página inicial</span>
+                    <span class="mx-2 font-bold">Página inicial</span>
                 </sidebar-nav-link>
 
                 <hr class="my-6 dark:border-gray-600" />
 
                 <sidebar-nav-link :href="route('users')" :active="route().current('users')">
-                    <i class="fas fa-user"></i>
+                    <font-awesome-icon :icon="[ 'far', 'user' ]" />
                     <span class="mx-2 font-medium">Usuários</span>
                 </sidebar-nav-link>
 
-                <sidebar-nav-link :href="route('permissions')" :active="route().current('permissions')">
-                    <i class="fas fa-user-lock"></i>
-                    <span class="mx-2 font-medium">Permissões</span>
-                </sidebar-nav-link>
-
-                <sidebar-nav-link :href="route('roles')" :active="route().current('roles')">
-                    <i class="fas fa-users-cog"></i>
-                    <span class="mx-2 font-medium">Grupo de Permissões</span>
+                <sidebar-nav-link :href="route('projetos')" :active="route().current('projetos')">
+                    <font-awesome-icon :icon="[ 'far', 'list-alt' ]" />
+                    <span class="mx-2 font-medium">Projetos</span>
                 </sidebar-nav-link>
 
                 <hr class="my-6 dark:border-gray-600" />

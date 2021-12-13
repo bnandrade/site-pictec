@@ -14,7 +14,7 @@
                 <p class="text-2xl">Números da edição</p>
             </div>
 
-            <div class="p-4 flex justify-center">
+            <div class="p-4 flex flex-wrap justify-center">
 
                 <!-- Ícone números -->
                 <div class="flex flex-col text-center mx-4">

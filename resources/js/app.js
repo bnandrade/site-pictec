@@ -6,10 +6,24 @@ import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-v
 import { InertiaProgress } from '@inertiajs/progress';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons'
+import { faMinusSquare } from '@fortawesome/free-regular-svg-icons'
+import { faEdit } from '@fortawesome/free-regular-svg-icons'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
+import { faListAlt } from '@fortawesome/free-regular-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VTooltip from 'v-tooltip'
 
 library.add(faWhatsapp)
+library.add(faPlusSquare)
+library.add(faMinusSquare)
+library.add(faEdit)
+library.add(faUser)
+library.add(faListAlt)
+library.add(faTrashAlt)
+library.add(faTimesCircle)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VTooltip)
 

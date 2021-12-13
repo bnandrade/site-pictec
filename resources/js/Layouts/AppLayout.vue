@@ -17,8 +17,8 @@
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <jet-nav-link :href="route('home')" >
+                                    Site Pictec
                                 </jet-nav-link>
 
                             </div>
@@ -159,9 +159,6 @@
 
             </main>
 
-            <!-- Modal Portal -->
-            <portal-target name="modal" multiple>
-            </portal-target>
         </div>
         <footer class="text-gray-600 body-font max-w-7xl mx-auto">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">

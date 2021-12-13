@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SetorController;
@@ -61,6 +62,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::post('setores', [SetorController::class, 'store'])->name('setor.store');
         Route::put('setores/{setor}', [SetorController::class, 'update'])->name('setor.update');
         Route::delete('setores/{setor}', [SetorController::class, 'destroy'])->name('setor.destroy');
+
+        Route::get('projetos', [ProjetoController::class, 'index'])->name('projetos');
+        Route::post('projetos', [ProjetoController::class, 'store'])->name('projeto.store');
+        Route::put('projetos/{projeto}', [ProjetoController::class, 'update'])->name('projeto.update');
+        Route::delete('projetos/{projeto}', [ProjetoController::class, 'destroy'])->name('projeto.destroy');
 
 
     });

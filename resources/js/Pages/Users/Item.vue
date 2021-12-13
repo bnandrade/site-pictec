@@ -4,7 +4,7 @@
         <button
             class="cursor-pointer text-sm text-gray-400 focus:outline-none mx-2"
             @click="updating = true" v-tooltip="'Editar usuário'">
-            <i class="far fa-edit"></i>
+            <font-awesome-icon :icon="[ 'far', 'edit' ]" />
         </button>
 
         <jet-dialog-modal :show="updating" @close="updating = false">
