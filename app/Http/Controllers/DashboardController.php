@@ -16,9 +16,10 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
 
-
+        /*
          $user = Auth::user();
          $user->assignRole('Super.Admin');
+        */
 
 
         return Inertia::render('Dashboard', [
