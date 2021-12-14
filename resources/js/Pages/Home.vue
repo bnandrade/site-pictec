@@ -6,7 +6,9 @@
 
             <!-- IMAGEM DE CAPA -->
             <div class="bg-gray-200 w-full pt-6 mx-auto ">
-                <div class=" h-64 items-center text-center">FOTO</div>
+                <div class=" my-4 items-center text-center">
+                    <img :src="$props.banner">
+                </div>
             </div>
             <!-- IMAGEM DE CAPA -->
 
@@ -134,6 +136,7 @@ import mapValues from "lodash/mapValues";
 export default {
     name: "Home",
     props: {
+        banner: String,
         projetos: Object,
         filters: Object
     },

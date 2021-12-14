@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -14,8 +16,12 @@ class HomeController extends Controller
         $field = 'titulo';
         $order = 'ASC';
 
+        $banner = Banner::orderBy('id', 'desc')->limit('1')->first();
+        $bannerImagem = Storage::url($banner->imagem);
+
         return Inertia::render('Home', [
             'filters' => $request->all('search', 'order'),
+            'banner' => $bannerImagem,
             'projetos' => Projeto::orderByName()
                 ->orderBy($field, $order)
                 ->filter($request->only('search', 'order'))

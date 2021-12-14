@@ -12592,6 +12592,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -12600,6 +12602,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   props: {
+    banner: String,
     projetos: Object,
     filters: Object
   },
@@ -60081,13 +60084,17 @@ var render = function() {
             "w-full container mx-auto flex flex-col max-w-6xl bg-white my-4 px-6 py-4 text-gray-500 rounded-t-lg"
         },
         [
+          _c("div", { staticClass: "bg-gray-200 w-full pt-6 mx-auto " }, [
+            _c("div", { staticClass: " my-4 items-center text-center" }, [
+              _c("img", { attrs: { src: _vm.$props.banner } })
+            ])
+          ]),
+          _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
           _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
@@ -60165,16 +60172,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-gray-200 w-full pt-6 mx-auto " }, [
-      _c("div", { staticClass: " h-64 items-center text-center" }, [
-        _vm._v("FOTO")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
