@@ -14,6 +14,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faListAlt } from '@fortawesome/free-regular-svg-icons'
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
+import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VTooltip from 'v-tooltip'
 
@@ -25,6 +26,7 @@ library.add(faUser)
 library.add(faListAlt)
 library.add(faTrashAlt)
 library.add(faTimesCircle)
+library.add(faArrowAltCircleLeft)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VTooltip)
 Vue.use(PortalVue);

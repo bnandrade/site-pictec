@@ -11,13 +11,6 @@ class CreateProjetosTable extends Migration
      *
      * @return void
      *
-    '',
-    '',
-    '',
-    '',
-    '',
-    'url_video',
-    'url_foto',
      */
     public function up()
     {

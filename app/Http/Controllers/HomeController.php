@@ -42,10 +42,12 @@ class HomeController extends Controller
         ]);
     }
 
-    public function quem_somos(Request $request)
+    public function detalhes($id)
     {
-        return Inertia::render('QuemSomos', [
-            'filters' => $request->all('search', 'order'),
+        $projeto = Projeto::where('id', $id)->first();
+
+        return Inertia::render('Detalhes', [
+            'projeto' => $projeto,
         ]);
     }
 

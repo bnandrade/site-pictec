@@ -4,6 +4,7 @@
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NumeroController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\RoleController;
@@ -34,6 +35,7 @@ use Inertia\Inertia;
 });*/
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detalhes/{projeto}', [HomeController::class, 'detalhes'])->name('detalhes.projeto');
 
 /* ROTAS ADMINISTRATIVAS */
     Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -53,14 +55,19 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::put('roles/{role}', [RoleController::class, 'update'])->name('role.update');
         Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 
+        Route::get('banners', [BannerController::class, 'index'])->name('banners');
+        Route::post('banners', [BannerController::class, 'store'])->name('banner.store');
+        Route::delete('banners/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy');
+
+        Route::get('numeros', [NumeroController::class, 'index'])->name('numeros');
+        Route::post('numeros', [NumeroController::class, 'store'])->name('numero.store');
+        Route::put('numeros/{numero}', [NumeroController::class, 'update'])->name('numero.update');
+        Route::delete('numeros/{numero}', [NumeroController::class, 'destroy'])->name('numero.destroy');
+
         Route::get('projetos', [ProjetoController::class, 'index'])->name('projetos');
         Route::post('projetos', [ProjetoController::class, 'store'])->name('projeto.store');
         Route::put('projetos/{projeto}', [ProjetoController::class, 'update'])->name('projeto.update');
         Route::delete('projetos/{projeto}', [ProjetoController::class, 'destroy'])->name('projeto.destroy');
-
-        Route::get('banners', [BannerController::class, 'index'])->name('banners');
-        Route::post('banners', [BannerController::class, 'store'])->name('banner.store');
-        Route::delete('banners/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
 
     });
