@@ -17,7 +17,7 @@ class CreateNumerosTable extends Migration
             $table->id();
             $table->string('imagem');
             $table->string('titulo', '255');
-            $table->string('numero', '10');
+            $table->string('valor', '10');
             $table->timestamps();
         });
     }

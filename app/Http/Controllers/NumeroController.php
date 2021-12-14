@@ -33,7 +33,7 @@ class NumeroController extends Controller
                     'id' => $numero->id,
                     'imagem' => Storage::url($numero->imagem),
                     'titulo' => $numero->titulo,
-                    'numero' => $numero->numero,
+                    'valor' => $numero->valor,
                 ]),
         ]);
     }

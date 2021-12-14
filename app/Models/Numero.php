@@ -19,7 +19,7 @@ class Numero extends Model
     protected $fillable = [
         'imagem',
         'titulo',
-        'numero',
+        'valor',
     ];
 
     public function scopeOrderByName($query)
@@ -33,7 +33,7 @@ class Numero extends Model
         $query->when($filters['search'] ?? null, function ($query, $search) {
             $query->where(function ($query) use ($search) {
                 $query->where('titulo', 'like', '%'.$search.'%')
-                    ->orWhere('numero', 'like', '%'.$search.'%');
+                    ->orWhere('valor', 'like', '%'.$search.'%');
             });
         });
     }

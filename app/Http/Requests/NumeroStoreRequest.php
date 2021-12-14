@@ -34,7 +34,7 @@ class NumeroStoreRequest extends FormRequest
         return [
             'imagem' => '',
             'titulo' => 'required|string',
-            'numero' => 'required|string',
+            'valor' => 'required|string',
         ];
     }
 }

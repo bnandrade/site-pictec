@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Numero;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,10 @@ class HomeController extends Controller
         $order = 'ASC';
 
         $banner = Banner::orderBy('id', 'desc')->limit('1')->first();
-        $bannerImagem = Storage::url($banner->imagem);
+        $bannerImagem = '';
+        if($banner){
+            $bannerImagem = Storage::url($banner->imagem);
+        }
 
         return Inertia::render('Home', [
             'filters' => $request->all('search', 'order'),
@@ -38,6 +42,17 @@ class HomeController extends Controller
                     'resumo' => $projeto->resumo,
                     'url_video' => $projeto->url_video,
                     'url_foto' => $projeto->url_foto,
+                ]),
+            'numeros' => Numero::orderByName()
+                ->orderBy($field, $order)
+                ->filter($request->only('search', 'order'))
+                ->paginate(20)
+                ->withQueryString()
+                ->through(fn ($numero) => [
+                    'id' => $numero->id,
+                    'imagem' => Storage::url($numero->imagem),
+                    'titulo' => $numero->titulo,
+                    'valor' => $numero->valor,
                 ]),
         ]);
     }

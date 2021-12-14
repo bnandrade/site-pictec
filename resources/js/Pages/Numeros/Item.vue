@@ -41,9 +41,9 @@
                 </div>
 
                 <div class=" mt-4">
-                    <jet-label for="numero" value="Número" />
-                    <jet-input id="numero" type="text" class="mt-1 block w-full" v-model="updateForm.numero"  />
-                    <jet-input-error :message="updateForm.errors.numero" class="mt-2" />
+                    <jet-label for="valor" value="Número" />
+                    <jet-input id="valor" type="text" class="mt-1 block w-full" v-model="updateForm.valor"  />
+                    <jet-input-error :message="updateForm.errors.valor" class="mt-2" />
                 </div>
 
             </template>
@@ -122,7 +122,7 @@ export default {
         return {
             updateForm: this.$inertia.form({
                 titulo: this.numero.titulo,
-                numero: this.numero.numero,
+                valor: this.numero.valor,
             }),
             updating: false,
 

@@ -33,7 +33,7 @@ class NumeroUpdateRequest extends FormRequest
     {
         return [
             'titulo' => 'required|string',
-            'numero' => 'required|string',
+            'valor' => 'required|string',
         ];
     }
 }

@@ -19,66 +19,10 @@
             <div class="p-4 flex flex-wrap justify-center">
 
                 <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-blue-200 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números A</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-blue-400 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números B</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-red-400 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números C</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-green-400 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números D</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-red-200 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números E</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-yellow-400 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números F</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-yellow-200 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números G</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
-                </div>
-                <!-- Ícone números -->
-
-                <!-- Ícone números -->
-                <div class="flex flex-col text-center mx-4">
-                    <div class="bg-pink-400 rounded-full w-24 h-24 "></div>
-                    <p class="border-b">Números H</p>
-                    <p class="text-gray-700 text-xl font-bold">999</p>
+                <div v-for="(numero, index) in numeros.data" :key="numero.id" class="flex flex-col text-center mx-4">
+                    <img :src="numero.imagem" class="w-24 my-2 mx-auto rounded-full">
+                    <p class="border-b">{{ numero.titulo }}</p>
+                    <p class="text-gray-700 text-xl font-bold">{{ numero.valor }}</p>
                 </div>
                 <!-- Ícone números -->
 
@@ -140,6 +84,7 @@ export default {
     name: "Home",
     props: {
         banner: String,
+        numeros: Object,
         projetos: Object,
         filters: Object
     },

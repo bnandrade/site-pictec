@@ -21,9 +21,9 @@
             </div>
 
             <div class="col-span-6 ">
-                <jet-label for="numero" value="Número" />
-                <jet-input id="numero" type="text" class="mt-1 block w-full" v-model="form.numero"   />
-                <jet-input-error :message="form.errors.numero" class="mt-2" />
+                <jet-label for="valor" value="Número" />
+                <jet-input id="valor" type="text" class="mt-1 block w-full" v-model="form.valor"   />
+                <jet-input-error :message="form.errors.valor" class="mt-2" />
             </div>
 
 
@@ -70,7 +70,7 @@ export default {
             form: this.$inertia.form({
                 imagem: '',
                 titulo: '',
-                numero: '',
+                valor: '',
             }),
 
             imagePreview: '',

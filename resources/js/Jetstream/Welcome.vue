@@ -6,31 +6,11 @@
 
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-12 border-b border-gray-200">
             <div class="p-2 md:col-span-6  md:border-b">
-                <div class="flex items-center ml-2">
-                    <i class="far fa-comment-dots"></i>
-                    <div class="ml-2 text-lg text-gray-600 leading-7 font-semibold">Central de Avisos</div>
+                <div class="flex flex-col  ml-2">
+                    <div class="ml-2 text-lg text-gray-600 leading-7 font-semibold">Área administrativa</div>
+                    <div class="ml-2 text-lg text-gray-600 leading-7 font-semibold">Site PICTEC</div>
                 </div>
 
-                <carousel
-                    v-bind:autoplay="true"
-                    v-bind:loop="true"
-                    v-bind:autoplayTimeout="4000"
-                    v-bind:autoplayHoverPause="true"
-                    :per-page="1" :mouse-drag="true">
-                    <slide
-
-                        v-for="(aviso, index) in avisos" :key="aviso.id" @slideclick="showModal(aviso.titulo, aviso.conteudo, aviso.imagem, aviso.anexo)"
-                        class=" cursor-pointer p-2 h-72">
-                        <h1 class="block bg-black opacity-75 text-bold text-white p-2 text-lg" >{{ aviso.titulo }}</h1>
-                        <img v-if="aviso.imagem" :src="aviso.imagem" class="w-full" />
-                    </slide>
-
-                </carousel>
-
-
-                <modal name="my-first-modal">
-                    This is my first modal
-                </modal>
 
             </div>
 

@@ -39,7 +39,7 @@
                             <tr v-for="(numero, index) in numeros.data" class="hover:bg-gray-100" :key="numero.id" >
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium"><img :src="numero.imagem"></td>
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">{{ numero.titulo }}</td>
-                                <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">{{ numero.numero }}</td>
+                                <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">{{ numero.valor }}</td>
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium text-center"><item :numero="numero"></item></td>
                             </tr>
                             </tbody>
