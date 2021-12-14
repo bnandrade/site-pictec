@@ -3,6 +3,7 @@ require('./bootstrap');
 // Import modules...
 import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
+import PortalVue from 'portal-vue';
 import { InertiaProgress } from '@inertiajs/progress';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
@@ -26,6 +27,7 @@ library.add(faTrashAlt)
 library.add(faTimesCircle)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VTooltip)
+Vue.use(PortalVue);
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);

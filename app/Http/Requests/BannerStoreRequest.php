@@ -4,16 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SetorUpdateRequest extends FormRequest
+class BannerStoreRequest extends FormRequest
 {
-
     /**
      * The key to be used for the view error bag.
      *
      * @var string
      */
-    protected $errorBag = 'setorUpdate';
-
+    protected $errorBag = 'bannerStore';
 
     /**
      * Determine if the user is authorized to make this request.
@@ -33,8 +31,7 @@ class SetorUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome_setor' => 'required|string',
-            'telefone' => 'required|string',
+            'imagem' => '',
         ];
     }
 }

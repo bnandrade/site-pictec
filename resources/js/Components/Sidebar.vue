@@ -24,6 +24,11 @@
                     <span class="mx-2 font-medium">Usuários</span>
                 </sidebar-nav-link>
 
+                <sidebar-nav-link :href="route('banners')" :active="route().current('banners')">
+                    <font-awesome-icon :icon="[ 'far', 'list-alt' ]" />
+                    <span class="mx-2 font-medium">Banner</span>
+                </sidebar-nav-link>
+
                 <sidebar-nav-link :href="route('projetos')" :active="route().current('projetos')">
                     <font-awesome-icon :icon="[ 'far', 'list-alt' ]" />
                     <span class="mx-2 font-medium">Projetos</span>

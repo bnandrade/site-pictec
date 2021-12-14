@@ -88,37 +88,27 @@
             </div>
 
             <div class="p-4 flex grid grid-cols-1 gap-4">
-                <label class="block">
-                    <input type="text" class="
-                    mt-1
-                    block
-                    w-full
-                    rounded-md
-                    border-gray-300
-                    shadow-sm
-                    text-gray-500
-                    focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Título da ideia ou proponente/instituição/município">
-                </label>
+
+                <search-filter v-model="form.search" :placeholder="'Buscar pelo Título da ideia ou coordenador/instituição/cidade'" class="block" @reset="reset">
+
+                </search-filter>
 
             </div>
 
 
             <div class="p-4 flex grid grid-cols-3 gap-8">
-
-
-
                 <!-- GRID PROJETO -->
-                <div v-for="value in items" :key="value.id" class="bg-white border rounded shadow p-2 flex flex-col cursor-pointer"
+                <div v-for="(projeto, index) in projetos.data" :key="projeto.id" class="bg-white border rounded shadow p-2 flex flex-col cursor-pointer"
                      v-tooltip="{
-            content: asyncMethod(value.instituicao, value.municipio, value.coordenador),
-            loadingContent: 'Por favor aguarde...',
-            loadingClass: 'carregando conteúdo',
-            html: true
-          }"
-                >
-                    <img :src="value.img">
-                    <h1 class="my-4 font-bold text-gray-800 border-b">{{ value.title }}</h1>
-                    <p class="text-gray-400">{{ value.description }}</p>
+                        content: asyncMethod(projeto.instituicao, projeto.cidade, projeto.coordenador),
+                        loadingContent: 'Por favor aguarde...',
+                        loadingClass: 'carregando conteúdo',
+                        html: true
+                      }"
+                    >
+                    <!-- <img :src="projeto.url_foto">-->
+                    <h1 class="my-4 font-bold text-gray-800 border-b">{{ projeto.titulo }}</h1>
+                    <p class="text-gray-400">{{ projeto.resumo }}</p>
                 </div>
                 <!-- GRID PROJETO -->
 
@@ -137,113 +127,27 @@
 
 import Navbar from '@/Components/Navbar.vue'
 import Footer from '@/Components/Footer.vue'
+import SearchFilter from '@/Components/SearchFilter'
+import pickBy from "lodash/pickBy";
+import mapValues from "lodash/mapValues";
 
 export default {
     name: "Home",
+    props: {
+        projetos: Object,
+        filters: Object
+    },
     components: {
         Navbar,
+        SearchFilter,
         Footer
     },
     data(){
         return {
-            items: [
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/10',
-                    title: 'AGRISEC - Tecnologia Agrícola',
-                    description: 'Empresa voltada ao desenvolvimento de tecnologia agrícola, atuando na área de agrometeorologia.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/17',
-                    title: 'Artificum Studio',
-                    description: 'Startup de base tecnológica voltada ao desenvolvimento de games e simuladores virtuais para a formação profissional.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/39',
-                    title: 'BR GARDENS',
-                    description: 'A BR GARDENS trabalha com a produção e venda de plantas nativas.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/10',
-                    title: 'AGRISEC - Tecnologia Agrícola',
-                    description: 'Empresa voltada ao desenvolvimento de tecnologia agrícola, atuando na área de agrometeorologia.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/17',
-                    title: 'Artificum Studio',
-                    description: 'Startup de base tecnológica voltada ao desenvolvimento de games e simuladores virtuais para a formação profissional.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/39',
-                    title: 'BR GARDENS',
-                    description: 'A BR GARDENS trabalha com a produção e venda de plantas nativas.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/10',
-                    title: 'AGRISEC - Tecnologia Agrícola',
-                    description: 'Empresa voltada ao desenvolvimento de tecnologia agrícola, atuando na área de agrometeorologia.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/17',
-                    title: 'Artificum Studio',
-                    description: 'Startup de base tecnológica voltada ao desenvolvimento de games e simuladores virtuais para a formação profissional.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/39',
-                    title: 'BR GARDENS',
-                    description: 'A BR GARDENS trabalha com a produção e venda de plantas nativas.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/10',
-                    title: 'AGRISEC - Tecnologia Agrícola',
-                    description: 'Empresa voltada ao desenvolvimento de tecnologia agrícola, atuando na área de agrometeorologia.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/17',
-                    title: 'Artificum Studio',
-                    description: 'Startup de base tecnológica voltada ao desenvolvimento de games e simuladores virtuais para a formação profissional.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-                {
-                    img: 'https://ms.programacentelha.com.br/empresa/logotipo/39',
-                    title: 'BR GARDENS',
-                    description: 'A BR GARDENS trabalha com a produção e venda de plantas nativas.',
-                    instituicao: 'IFMS',
-                    municipio: 'Dourados',
-                    coordenador: 'Bruno Andrade'
-                },
-            ]
+            form: {
+                search: this.filters.search,
+                order: this.filters.order,
+            },
         }
     },
     methods: {
@@ -256,7 +160,23 @@ export default {
                 "Coordenador: " + coordenador +
                 "</div>"
         },
-    }
+        order(ord) {
+            this.form.order = ord
+        },
+        reset() {
+            this.form = mapValues(this.form, () => null)
+        },
+    },
+    watch: {
+        form: {
+            handler: _.debounce(function() {
+                let query = pickBy(this.form);
+                let route = this.route('home', Object.keys(query).length ? query : { remember: 'forget' });
+                this.$inertia.get(route, {}, { preserveScroll: true, preserveState: true })
+            }, 150),
+            deep: true,
+        },
+    },
 }
 </script>
 

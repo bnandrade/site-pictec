@@ -1,17 +1,12 @@
 <?php
 
 
-use App\Http\Controllers\AvisoController;
-use App\Http\Controllers\CardapioController;
-use App\Http\Controllers\ColaboradorController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProjetoController;
-use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Foundation\Application;
@@ -58,15 +53,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::put('roles/{role}', [RoleController::class, 'update'])->name('role.update');
         Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 
-        Route::get('setores', [SetorController::class, 'index'])->name('setores');
-        Route::post('setores', [SetorController::class, 'store'])->name('setor.store');
-        Route::put('setores/{setor}', [SetorController::class, 'update'])->name('setor.update');
-        Route::delete('setores/{setor}', [SetorController::class, 'destroy'])->name('setor.destroy');
-
         Route::get('projetos', [ProjetoController::class, 'index'])->name('projetos');
         Route::post('projetos', [ProjetoController::class, 'store'])->name('projeto.store');
         Route::put('projetos/{projeto}', [ProjetoController::class, 'update'])->name('projeto.update');
         Route::delete('projetos/{projeto}', [ProjetoController::class, 'destroy'])->name('projeto.destroy');
+
+        Route::get('banners', [BannerController::class, 'index'])->name('banners');
+        Route::post('banners', [BannerController::class, 'store'])->name('banner.store');
+        Route::delete('banners/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy');
 
 
     });

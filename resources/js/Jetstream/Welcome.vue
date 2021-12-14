@@ -53,10 +53,6 @@
 
     export default {
         props: {
-            documentos: Array,
-            setores: Array,
-            avisos: Array,
-            cardapio: Object,
             filters: Object
         },
         components: {

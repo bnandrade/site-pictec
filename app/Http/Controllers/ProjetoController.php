@@ -49,9 +49,9 @@ class ProjetoController extends Controller
     {
         $data = $request->validated();
 
-        $setorStore = Projeto::create($data);
+        $projetoStore = Projeto::create($data);
 
-        if($setorStore){
+        if($projetoStore){
             $request->session()->flash('toast.message', 'Projeto cadastrado com sucesso!');
             $request->session()->flash('toast.style', 'success');
         }else{

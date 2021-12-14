@@ -159,6 +159,10 @@
 
             </main>
 
+            <!-- Modal Portal -->
+            <portal-target name="modal" multiple>
+            </portal-target>
+
         </div>
         <footer class="text-gray-600 body-font max-w-7xl mx-auto">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
