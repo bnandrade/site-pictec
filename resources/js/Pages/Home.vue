@@ -42,9 +42,9 @@
             </div>
 
 
-            <div class="p-4 flex grid grid-cols-3 gap-8">
+            <div class="p-4 flex flex-col sm:grid sm:grid-cols-3 sm:gap-8">
                 <!-- GRID PROJETO -->
-                <div v-for="(projeto, index) in projetos.data" :key="projeto.id" class="bg-white border rounded shadow p-2 flex flex-col cursor-pointer"
+                <div v-for="(projeto, index) in projetos.data" :key="projeto.id" class="my-4 sm:my-0 bg-white border rounded shadow p-2 flex flex-col cursor-pointer"
                      v-tooltip="{
                         content: asyncMethod(projeto.instituicao, projeto.cidade, projeto.coordenador),
                         loadingContent: 'Por favor aguarde...',
