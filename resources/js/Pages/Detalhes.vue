@@ -10,36 +10,36 @@
                 <p class="text-2xl">Detalhes do Projeto</p>
             </div>
 
-            <div class="flex">
-                <div class="p-4 w-3/5">
+            <div class="flex flex-col md:flex-row">
+                <div class="p-4 w-full md:w-3/5">
                     <span class="font-bold">Titulo:</span><br>{{ $props.projeto.titulo }}
                 </div>
-                <div class="p-4 w-1/5">
+                <div class="p-4 w-full md:w-1/5">
                     <span class="font-bold">Instituição:</span><br> {{ $props.projeto.instituicao }}
                 </div>
-                <div class="p-4 w-1/5">
+                <div class="p-4 w-full md:w-1/5">
                     <span class="font-bold">Cidade:</span><br> {{ $props.projeto.cidade }}
                 </div>
             </div>
 
-            <div class="flex">
-                <div class="p-4 w-3/6">
+            <div class="flex flex-col md:flex-row">
+                <div class="p-4 w-full md:w-3/6">
                     <span class="font-bold">Resumo:</span><br>{{ $props.projeto.resumo }}
                 </div>
-                <div class="p-4 w-1/6">
+                <div class="p-4 w-full md:w-1/6">
                     <span class="font-bold">Coordenador:</span><br> {{ $props.projeto.coordenador }}
                 </div>
-                <div class="p-4 w-2/6">
+                <div class="p-4 w-full md:w-2/6">
                     <span class="font-bold">Bolsistas:</span><br> {{ $props.projeto.bolsistas }}
                 </div>
             </div>
 
-            <div class="flex">
-                <div class="p-4 w-3/6">
+            <div class="flex flex-col md:flex-row">
+                <div class="p-4 w-full md:w-3/6">
                     <span class="font-bold">Vídeo:</span><br>
                     <a :href="$props.projeto.url_video" target="_blank" class="text-blue-600 hover:text-gray-500">{{ $props.projeto.url_video }}</a>
                 </div>
-                <div class="p-4 w-3/6">
+                <div class="p-4 w-full md:w-3/6">
                     <span class="font-bold">Fotos:</span><br>
                     <a :href="$props.projeto.url_foto" target="_blank" class="text-blue-600 hover:text-gray-500">{{ $props.projeto.url_foto }}</a>
                 </div>
