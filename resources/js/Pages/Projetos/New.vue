@@ -4,6 +4,16 @@
 
         <template #form>
 
+
+            <div class="col-span-12">
+                <label class="block font-medium text-sm text-gray-700">Imagem de capa do projeto:</label>
+                <input type="file" class="form-input rounded-md shadow-sm block mt-1 p-2 w-full border focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-transparent " @change="onImageChange" >
+
+                <div v-if="imagePreview" class="w-1/2 mx-auto">
+                    <img :src="imagePreview" class="w-full" />
+                </div>
+
+            </div>
             <div class="col-span-6 ">
                 <jet-label for="titulo" value="Titulo do Projeto" />
                 <jet-input id="titulo" type="text" class="mt-1 block w-full" v-model="form.titulo" autofocus  />
@@ -94,6 +104,7 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
+                capa: '',
                 titulo: '',
                 instituicao: '',
                 cidade: '',
@@ -104,6 +115,8 @@ export default {
                 url_foto: '',
                 ano: '',
             }),
+
+            imagePreview: '',
 
         }
     },
@@ -117,6 +130,13 @@ export default {
                     this.form.reset()
                 }
             });
+        },
+
+        onImageChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            this.form.capa = files[0];
         },
     },
 }

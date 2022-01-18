@@ -7,6 +7,7 @@ use App\Http\Requests\ProjetoUpdateRequest;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class ProjetoController extends Controller
@@ -31,6 +32,7 @@ class ProjetoController extends Controller
                 ->withQueryString()
                 ->through(fn ($projeto) => [
                     'id' => $projeto->id,
+                    'capa' => Storage::url($projeto->capa),
                     'titulo' => $projeto->titulo,
                     'instituicao' => $projeto->instituicao,
                     'cidade' => $projeto->cidade,
@@ -48,6 +50,9 @@ class ProjetoController extends Controller
     public function store(ProjetoStoreRequest $request)
     {
         $data = $request->validated();
+        if( !empty($data['capa']) ){
+            $data['capa'] = $request->capa->store('public/projetos');
+        }
 
         $projetoStore = Projeto::create($data);
 
@@ -65,8 +70,24 @@ class ProjetoController extends Controller
     public function update(ProjetoUpdateRequest $request, Projeto $projeto)
     {
         $data = $request->validated();
+        $projetoUp = [];
 
-        $projetoUpdate = $projeto->update($data);
+        if( !empty($data['capa']) && $data['capa']){
+            $projetoUp['capa'] = $request->capa->store('public/projetos');
+        }
+
+        $projetoUp['titulo'] = $data['titulo'];
+        $projetoUp['instituicao'] = $data['instituicao'];
+        $projetoUp['cidade'] = $data['cidade'];
+        $projetoUp['coordenador'] = $data['coordenador'];
+        $projetoUp['bolsistas'] = $data['bolsistas'];
+        $projetoUp['resumo'] = $data['resumo'];
+        $projetoUp['url_video'] = $data['url_video'];
+        $projetoUp['url_foto'] = $data['url_foto'];
+
+
+        $projetoUpdate = $projeto->update($projetoUp);
+
 
         if($projetoUpdate){
             $request->session()->flash('toast.message', 'Projeto atualizado com sucesso!');
@@ -76,7 +97,7 @@ class ProjetoController extends Controller
             $request->session()->flash('toast.style', 'danger');
         }
 
-        return back(303);
+        return Inertia::location(route('projetos'));
     }
 
     public function destroy(Request $request, Projeto $projeto)

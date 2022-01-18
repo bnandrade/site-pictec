@@ -17,6 +17,7 @@ class Projeto extends Model
      * @var array
      */
     protected $fillable = [
+        'capa',
         'titulo',
         'instituicao',
         'cidade',

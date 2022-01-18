@@ -31,6 +31,7 @@ class ProjetoUpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'capa' => '',
             'titulo' => 'required|string',
             'instituicao' => 'required|string',
             'cidade' => 'required|string',

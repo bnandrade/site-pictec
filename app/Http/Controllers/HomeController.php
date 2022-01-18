@@ -33,6 +33,7 @@ class HomeController extends Controller
                 ->withQueryString()
                 ->through(fn ($projeto) => [
                     'id' => $projeto->id,
+                    'capa' => Storage::url($projeto->capa),
                     'titulo' => $projeto->titulo,
                     'instituicao' => $projeto->instituicao,
                     'cidade' => $projeto->cidade,
@@ -59,10 +60,25 @@ class HomeController extends Controller
 
     public function detalhes($id)
     {
-        $projeto = Projeto::where('id', $id)->first();
 
         return Inertia::render('Detalhes', [
-            'projeto' => $projeto,
+            'projeto' => Projeto::where('id', $id)->get()->map(function ($projeto) {
+                return [
+                    'id' => $projeto->id,
+                    'capa' => Storage::url($projeto->capa),
+                    'titulo' => $projeto->titulo,
+                    'instituicao' => $projeto->instituicao,
+                    'cidade' => $projeto->cidade,
+                    'coordenador' => $projeto->coordenador,
+                    'bolsistas' => $projeto->bolsistas,
+                    'ano' => $projeto->ano,
+                    'resumo' => $projeto->resumo,
+                    'url_video' => $projeto->url_video,
+                    'url_foto' => $projeto->url_foto,
+                ];
+
+            }),
+
         ]);
     }
 

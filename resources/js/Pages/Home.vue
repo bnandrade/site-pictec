@@ -54,6 +54,7 @@
                     >
                     <a :href="route('detalhes.projeto', projeto.id)" class="cursor-pointer">
                         <!-- <img :src="projeto.url_foto">-->
+                        <h1 class="my-4 font-bold text-gray-800 border-b"><img class="w-full" :src="projeto.capa" /></h1>
                         <h1 class="my-4 font-bold text-gray-800 border-b">{{ projeto.titulo }}</h1>
                         <p class="text-gray-400">{{ projeto.resumo }}</p>
                     </a>

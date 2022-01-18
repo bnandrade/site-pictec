@@ -34,6 +34,20 @@
 
             <template #content>
 
+
+                <div class="col-span-6 my-4 flex gap-4 items-center">
+                    <div class="w-3/6">
+                        <label class="block font-medium text-sm text-gray-700">Imagem de capa:</label>
+                        <input type="file" class="form-input rounded-md shadow-sm block mt-1 p-2 w-full border focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-transparent " @change="onImageChange" >
+                    </div>
+                    <div class="w-3/6">
+                        <div v-if="imagePreview">
+                            <img class="rounded" :src="imagePreview"/>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="">
                     <jet-label for="titulo" value="Título do projeto" />
                     <jet-input id="titulo" type="text" class="mt-1 block w-full" v-model="updateForm.titulo"  />
@@ -157,6 +171,7 @@ export default {
     data() {
         return {
             updateForm: this.$inertia.form({
+                capa: '',
                 titulo: this.projeto.titulo,
                 instituicao: this.projeto.instituicao,
                 cidade: this.projeto.cidade,
@@ -167,6 +182,9 @@ export default {
                 url_foto: this.projeto.url_foto,
                 ano: this.projeto.ano,
             }),
+            capa: '',
+            imagePreview: this.projeto.capa,
+
             updating: false,
 
             destroyForm: this.$inertia.form(),
@@ -178,14 +196,48 @@ export default {
     methods: {
         update() {
 
-            this.updateForm.put(route('projeto.update', this.projeto),  {
+            const data = {
+                _method : 'PUT',
+                capa: this.capa,
+                titulo: this.updateForm.titulo,
+                instituicao: this.updateForm.instituicao,
+                cidade: this.updateForm.cidade,
+                coordenador: this.updateForm.coordenador,
+                bolsistas: this.updateForm.bolsistas,
+                resumo: this.updateForm.resumo,
+                url_video: this.updateForm.url_video,
+                url_foto: this.updateForm.url_foto,
+                ano: this.updateForm.ano,
+            }
+
+            this.$inertia.post(this.route('projeto.update', this.projeto), data, {
                 errorBag: 'projetoUpdate',
                 preserveScroll: true,
                 onSuccess: () => {
+                    this.updateForm.reset()
+                    this.updateForm.capa = ''
+                    this.updateForm.titulo = ''
+                    this.updateForm.instituicao = ''
+                    this.updateForm.cidade = ''
+                    this.updateForm.coordenador = ''
+                    this.updateForm.bolsistas = ''
+                    this.updateForm.resumo = ''
+                    this.updateForm.url_video = ''
+                    this.updateForm.url_foto = ''
+                    this.updateForm.ano = ''
+                    this.formNewVisible = false
                     this.updating = false
-                }
+
+                },
             })
 
+        },
+        onImageChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            this.capa = files[0];
+            // this.createImage(files[0]);
         },
 
         destroy() {

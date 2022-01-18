@@ -18,6 +18,11 @@
                             <tr>
                                 <th class="w-2/6 border border-light-blue-500 px-4 py-2 text-light-blue-600">
                                     <div class="flex justify-between">
+                                        Capa
+                                    </div>
+                                </th>
+                                <th class="w-2/6 border border-light-blue-500 px-4 py-2 text-light-blue-600">
+                                    <div class="flex justify-between">
                                         Título
                                         <div class="flex flex-col ">
                                             <div @click="order('nameC')"  class=" cursor-pointer hover:text-sistema-primary h-2"><i class="fas fa-sort-up" v-tooltip="'Ordem crescente'"></i></div>
@@ -36,6 +41,7 @@
                             <tbody>
 
                             <tr v-for="(projeto, index) in projetos.data" class="hover:bg-gray-100" :key="projeto.id" >
+                                <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium"><img class="w-24" :src="projeto.capa" /></td>
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">{{ projeto.titulo }}</td>
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">{{ projeto.instituicao }}</td>
                                 <td class=" border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium text-center"><item :projeto="projeto"></item></td>
