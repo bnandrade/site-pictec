@@ -13,7 +13,7 @@
             <!-- IMAGEM DE CAPA -->
 
             <div class="mt-4 border-b">
-                <p class="text-2xl">Números da edição</p>
+                <p class="text-2xl">Números da Edição 2021</p>
             </div>
 
             <div class="p-4 flex flex-wrap justify-center">
