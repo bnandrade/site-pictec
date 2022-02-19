@@ -29,7 +29,7 @@ class HomeController extends Controller
             'projetos' => Projeto::orderByName()
                 ->orderBy($field, $order)
                 ->filter($request->only('search', 'order'))
-                ->paginate(20)
+                ->paginate(9)
                 ->withQueryString()
                 ->through(fn ($projeto) => [
                     'id' => $projeto->id,

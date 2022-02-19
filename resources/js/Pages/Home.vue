@@ -30,7 +30,7 @@
 
 
             <div class="mt-8 border-b">
-                <p class="text-2xl">Idéias contempladas</p>
+                <p class="text-2xl">Projetos</p>
             </div>
 
             <div class="p-4 flex grid grid-cols-1 gap-4">
@@ -41,6 +41,9 @@
 
             </div>
 
+            <div class="p-4 flex mx-auto grid grid-cols-1 gap-4">
+                <pagination :links="projetos.links"></pagination>
+            </div>
 
             <div class="p-4 flex flex-col sm:grid sm:grid-cols-3 sm:gap-8">
                 <!-- GRID PROJETO -->
@@ -64,7 +67,6 @@
 
 
 
-
             </div>
 
         </div>
@@ -80,6 +82,7 @@ import Footer from '@/Components/Footer.vue'
 import SearchFilter from '@/Components/SearchFilter'
 import pickBy from "lodash/pickBy";
 import mapValues from "lodash/mapValues";
+import Pagination from "@/Components/Pagination";
 
 export default {
     name: "Home",
@@ -92,6 +95,7 @@ export default {
     components: {
         Navbar,
         SearchFilter,
+        Pagination,
         Footer
     },
     data(){
